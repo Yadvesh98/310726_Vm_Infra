@@ -1,0 +1,18 @@
+trigger: none
+pool: Infra_Pool
+stages:
+- stage: Terraform
+  jobs:
+  - job: terraforminit
+    steps:
+    - task: TerraformTask@5
+      displayName: terrafrom init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/pre-prod'
+        backendServiceArm: 'YY_svc_workload_IF'
+        backendAzureRmResourceGroupName: 'kddi-rg'
+        backendAzureRmStorageAccountName: 'kddistg'
+        backendAzureRmContainerName: 'preprodcontainer'
+        backendAzureRmKey: 'tfstate'
