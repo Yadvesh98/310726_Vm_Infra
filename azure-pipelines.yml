@@ -1,5 +1,5 @@
 trigger: none
-pool: Infra_Pool
+pool: Sarju52_pool
 stages:
 - stage: Terraform
   jobs:
