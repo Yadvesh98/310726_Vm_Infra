@@ -13,7 +13,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/pre-prod'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/pre_prod'
         backendServiceArm: 'YY_svc_workload_IF'
         backendAzureRmResourceGroupName: 'kddi-rg'
         backendAzureRmStorageAccountName: 'kddistg'
