@@ -7,7 +7,7 @@ stages:
     steps:
     - task: TerraformInstaller@1
       inputs:
-        terraformVersion: 'latest'
+        terraformVersion: '1.13.5'
     - task: TerraformTask@5
       displayName: terrafrom init
       inputs:
