@@ -1,0 +1,21 @@
+trigger: none
+pool: Sarju52_pool
+stages:
+- stage: Terraform
+  jobs:
+  - job: terraforminit
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: '1.13.0'
+    - task: TerraformTask@5
+      displayName: terrafrom init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/pre_prod'
+        backendServiceArm: 'YY_svc_workload_IF'
+        backendAzureRmResourceGroupName: 'kddi-rg'
+        backendAzureRmStorageAccountName: 'kddistg'
+        backendAzureRmContainerName: 'preprodcontainer'
+        backendAzureRmKey: 'tfstate'
